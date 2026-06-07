@@ -296,7 +296,7 @@ export default function StatsPage() {
 
               {/* SVG Chart Graphic */}
               <div className="flex justify-center py-2 bg-neutral-950/20 border border-neutral-800/40 rounded-xl">
-                <svg width="100%" height={svgHeight + 25} viewBox={`0 0 ${svgWidth} ${svgHeight + 25}`} className="overflow-visible max-w-sm">
+                <svg width="100%" height={svgHeight + 25} viewBox={`0 0 ${svgWidth} ${svgHeight + 25}`} className="overflow-visible max-w-sm" role="img" aria-label="Speaking practice statistics chart">
                   {/* Grid Lines */}
                   {[0, 0.25, 0.5, 0.75, 1].map((r, i) => {
                     const y = svgHeight * (1 - r);

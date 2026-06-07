@@ -44,7 +44,7 @@ export default function RoomCard({ room }: RoomCardProps) {
             {room.level}
           </span>
           <div className="flex items-center gap-1.5 text-xs text-neutral-400">
-            <Users className="w-3.5 h-3.5" />
+            <Users className="w-3.5 h-3.5" role="img" aria-label="Users icon" />
             <span className={room.active_count > 0 ? 'text-blue-400 font-medium' : ''}>
               {room.active_count || 0} / {room.max_users || 6} talking
             </span>
@@ -93,7 +93,7 @@ export default function RoomCard({ room }: RoomCardProps) {
             className="w-full h-11 bg-neutral-800 text-white font-semibold rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-black transition-all duration-200 text-sm group/btn"
           >
             Join Room
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" role="img" aria-label="Arrow pointing right" />
           </Link>
         )}
       </div>

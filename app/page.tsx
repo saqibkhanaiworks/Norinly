@@ -40,7 +40,7 @@ export default async function HomePage() {
 
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-neutral-900 border border-neutral-800 rounded-full text-xs font-semibold uppercase tracking-wider text-blue-400">
-            <Sparkles className="w-3.5 h-3.5" /> Instantly Speak English Free
+            <Sparkles className="w-3.5 h-3.5" role="img" aria-label="Sparkles icon" /> Instantly Speak English Free
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
@@ -62,7 +62,7 @@ export default async function HomePage() {
               className="w-full sm:w-auto h-14 px-8 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl transition-all duration-200 text-base flex items-center justify-center gap-2 group shadow-lg shadow-white/5"
             >
               Start Speaking Now
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" role="img" aria-label="Arrow pointing right" />
             </Link>
 
             <Link
@@ -92,7 +92,7 @@ export default async function HomePage() {
             <div className="bg-neutral-900/40 border border-neutral-800/80 p-8 rounded-2xl space-y-4 relative">
               <span className="absolute top-6 right-6 text-4xl font-extrabold text-neutral-850 select-none">01</span>
               <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
-                <Mic className="w-6 h-6 text-blue-400" />
+                <Mic className="w-6 h-6 text-blue-400" role="img" aria-label="Microphone icon" />
               </div>
               <h3 className="text-lg font-bold text-white">Click Start Speaking</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
@@ -103,7 +103,7 @@ export default async function HomePage() {
             <div className="bg-neutral-900/40 border border-neutral-800/80 p-8 rounded-2xl space-y-4 relative">
               <span className="absolute top-6 right-6 text-4xl font-extrabold text-neutral-850 select-none">02</span>
               <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-blue-400" />
+                <Zap className="w-6 h-6 text-blue-400" role="img" aria-label="Lightning bolt icon" />
               </div>
               <h3 className="text-lg font-bold text-white">Get Matched in Seconds</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default async function HomePage() {
             <div className="bg-neutral-900/40 border border-neutral-800/80 p-8 rounded-2xl space-y-4 relative">
               <span className="absolute top-6 right-6 text-4xl font-extrabold text-neutral-850 select-none">03</span>
               <div className="w-12 h-12 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center">
-                <ShieldCheck className="w-6 h-6 text-purple-400" />
+                <ShieldCheck className="w-6 h-6 text-purple-400" role="img" aria-label="Shield check icon" />
               </div>
               <h3 className="text-lg font-bold text-white">Talk, Skip, Repeat</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
@@ -227,7 +227,7 @@ export default async function HomePage() {
         <div className="max-w-6xl mx-auto border-t border-neutral-900/60 mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-600">
           <p>© 2026 Norinly. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            Made for learners worldwide <Heart className="w-3 h-3 text-blue-500 fill-blue-500" />
+            Made for learners worldwide <Heart className="w-3 h-3 text-blue-500 fill-blue-500" role="img" aria-label="Heart icon" />
           </p>
         </div>
       </footer>

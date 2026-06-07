@@ -56,7 +56,7 @@ export default function LiveCounter() {
 
   return (
     <div className="flex items-center gap-2 bg-neutral-900/40 border border-neutral-800/80 px-4 py-1.5 rounded-full text-xs sm:text-sm text-neutral-300 font-medium backdrop-blur-md">
-      <span className="relative flex h-2 w-2">
+      <span className="relative flex h-2 w-2" role="img" aria-label="Live status indicator">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
       </span>
