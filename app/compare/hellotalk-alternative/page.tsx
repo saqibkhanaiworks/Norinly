@@ -3,8 +3,17 @@ import Link from 'next/link';
 import { ArrowLeft, Check, X, ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'HelloTalk Alternative | Norinly',
+  title: 'HelloTalk Alternative — No Signup | Norinly',
   description: 'Looking for a HelloTalk alternative without complicated profiles and signups? Norinly connects you to English speakers instantly.',
+  alternates: {
+    canonical: 'https://norinly.live/compare/hellotalk-alternative',
+  },
+  openGraph: {
+    title: 'HelloTalk Alternative — No Signup | Norinly',
+    description: 'Looking for a HelloTalk alternative without complicated profiles and signups? Norinly connects you to English speakers instantly.',
+    url: 'https://norinly.live/compare/hellotalk-alternative',
+    type: 'website',
+  },
 };
 
 export default function HelloTalkAlternativePage() {

@@ -5,6 +5,15 @@ import { ArrowLeft, BookOpen, MessageSquare, Heart, Shuffle, ShieldAlert, FileTe
 export const metadata = {
   title: 'Community Guidelines | Norinly',
   description: 'Understand the community rules and code of conduct for practicing English speaking on Norinly.',
+  alternates: {
+    canonical: 'https://norinly.live/guidelines',
+  },
+  openGraph: {
+    title: 'Community Guidelines | Norinly',
+    description: 'Understand the community rules and code of conduct for practicing English speaking on Norinly.',
+    url: 'https://norinly.live/guidelines',
+    type: 'website',
+  },
 };
 
 export default function GuidelinesPage() {

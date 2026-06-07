@@ -5,6 +5,15 @@ import { ArrowLeft, BookOpen, Clock, Calendar, ArrowRight } from 'lucide-react';
 export const metadata = {
   title: 'English Speaking Practice Blog | Norinly',
   description: 'Articles and resources on how to improve your English speaking skills, overcome speaking anxiety, and find free tutor alternatives.',
+  alternates: {
+    canonical: 'https://norinly.live/blog',
+  },
+  openGraph: {
+    title: 'English Speaking Practice Blog | Norinly',
+    description: 'Articles and resources on how to improve your English speaking skills, overcome speaking anxiety, and find free tutor alternatives.',
+    url: 'https://norinly.live/blog',
+    type: 'website',
+  },
 };
 
 const BLOG_POSTS = [

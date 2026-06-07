@@ -5,6 +5,15 @@ import { ArrowLeft, Shield, EyeOff, Trash2, Mail } from 'lucide-react';
 export const metadata = {
   title: 'Privacy Policy | Norinly',
   description: 'Understand how we protect your anonymity and manage metadata at Norinly.',
+  alternates: {
+    canonical: 'https://norinly.live/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Norinly',
+    description: 'Understand how we protect your anonymity and manage metadata at Norinly.',
+    url: 'https://norinly.live/privacy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPage() {
@@ -52,7 +61,7 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside text-sm text-neutral-400 space-y-1 pl-2">
               <li>Your voice streams or audio recordings.</li>
               <li>Your name, email address, phone number, or profile details.</li>
-              <li>Your IP addresses (these are handled and masked by Daily.co intermediate servers).</li>
+              <li>Your IP addresses (these are handled and masked by LiveKit intermediate servers).</li>
             </ul>
           </section>
 

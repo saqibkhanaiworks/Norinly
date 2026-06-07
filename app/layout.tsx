@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Norinly | Practice English Speaking Free',
   description: 'Talk to real people worldwide. Anonymous, instant, free. No signup needed.',
   metadataBase: new URL('https://norinly.live'),
+  alternates: {
+    canonical: 'https://norinly.live',
+  },
   openGraph: {
     title: 'Norinly | Practice English Speaking Free',
     description: 'Talk to real people worldwide. Anonymous, instant, free. No signup needed.',
@@ -40,6 +43,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark h-full">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Norinly",
+              "url": "https://norinly.live",
+              "description": "Anonymous English voice practice with real learners worldwide. Instant, free, no signup.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://norinly.live/blog?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+      </head>
       <body className={`${inter.className} bg-[#04060d] text-white min-h-screen flex flex-col antialiased selection:bg-blue-500/30 selection:text-white`}>
         {/* Realtime Live Counter Banner */}
         <div className="w-full bg-[#04060d] border-b border-neutral-900 py-2.5 flex items-center justify-center">

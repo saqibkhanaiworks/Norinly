@@ -5,6 +5,15 @@ import { Shield, Lock, EyeOff, UserX, AlertTriangle, ArrowLeft } from 'lucide-re
 export const metadata = {
   title: 'Safety Center | Norinly',
   description: 'Learn about voice privacy, anonymization, and our community safety measures at Norinly.',
+  alternates: {
+    canonical: 'https://norinly.live/safety',
+  },
+  openGraph: {
+    title: 'Safety Center | Norinly',
+    description: 'Learn about voice privacy, anonymization, and our community safety measures at Norinly.',
+    url: 'https://norinly.live/safety',
+    type: 'website',
+  },
 };
 
 export default function SafetyPage() {
@@ -34,7 +43,7 @@ export default function SafetyPage() {
             </div>
             <h3 className="text-lg font-bold text-white">We never record your voice</h3>
             <p className="text-neutral-400 text-sm leading-relaxed">
-              Your conversations are peer-to-peer (P2P) and temporary. Voice streams are routed directly through Daily.co WebRTC architecture and are never saved or stored on our servers.
+              Your conversations use LiveKit's peer-to-peer WebRTC infrastructure. Voice streams are never saved or stored on our servers.
             </p>
           </div>
 
@@ -44,7 +53,7 @@ export default function SafetyPage() {
             </div>
             <h3 className="text-lg font-bold text-white">Your IP is masked</h3>
             <p className="text-neutral-400 text-sm leading-relaxed">
-              To prevent peers from discovering your location, Daily.co handles the media server routing. Other participants only see media flows and cannot access your IP address.
+              LiveKit handles the media server routing, keeping your IP address hidden from other participants.
             </p>
           </div>
 

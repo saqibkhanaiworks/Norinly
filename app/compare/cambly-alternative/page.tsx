@@ -3,8 +3,17 @@ import Link from 'next/link';
 import { ArrowLeft, Check, X, ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'Free Cambly Alternative | Norinly',
+  title: 'Free Cambly Alternative 2026 | Norinly',
   description: 'Looking for a free alternative to Cambly? Norinly offers instant, anonymous peer-to-peer English voice chat for free.',
+  alternates: {
+    canonical: 'https://norinly.live/compare/cambly-alternative',
+  },
+  openGraph: {
+    title: 'Free Cambly Alternative 2026 | Norinly',
+    description: 'Looking for a free alternative to Cambly? Norinly offers instant, anonymous peer-to-peer English voice chat for free.',
+    url: 'https://norinly.live/compare/cambly-alternative',
+    type: 'website',
+  },
 };
 
 export default function CamblyAlternativePage() {

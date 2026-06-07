@@ -3,8 +3,17 @@ import Link from 'next/link';
 import { ArrowLeft, Check, X, ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'Free italki Alternative | Norinly',
+  title: 'Free italki Alternative for Speaking Practice | Norinly',
   description: 'Looking for a free alternative to paid lessons on italki? Norinly lets you practice speaking English for free with peers around the world.',
+  alternates: {
+    canonical: 'https://norinly.live/compare/italki-alternative',
+  },
+  openGraph: {
+    title: 'Free italki Alternative for Speaking Practice | Norinly',
+    description: 'Looking for a free alternative to paid lessons on italki? Norinly lets you practice speaking English for free with peers around the world.',
+    url: 'https://norinly.live/compare/italki-alternative',
+    type: 'website',
+  },
 };
 
 export default function ItalkiAlternativePage() {
