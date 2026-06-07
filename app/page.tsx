@@ -205,6 +205,152 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 border-t border-neutral-900 px-4 sm:px-6" id="faq">
+        {/* FAQ JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Is Norinly completely free?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Norinly is 100% free with no subscriptions, credit cards, or hidden fees. You can practice English speaking as much as you want at no cost."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do I need to create an account?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No account is required. You can start speaking English with a real person in seconds — just click 'Start Speaking Now' and you'll be matched instantly, no signup needed."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is my identity kept anonymous?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Completely. Norinly does not ask for your name, email, or any personal information. Your voice is transmitted peer-to-peer via LiveKit WebRTC and is never recorded or stored."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What level of English do I need?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All levels are welcome — from complete beginners to advanced speakers looking to maintain fluency. You can choose topic rooms that match your comfort level and interests."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does the matching work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When you click 'Start Speaking', you're added to a live queue. Our system pairs you with another English learner in under 10 seconds. If you want a different partner, you can skip and be rematched immediately."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is there video or just audio?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voice only — by design. Removing video eliminates camera anxiety so you can focus entirely on speaking and listening in English. No webcam is ever required or used."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Which browsers and devices does Norinly support?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Norinly works on any modern browser — Chrome, Firefox, Edge, or Safari — on both desktop and mobile. No app download or plugin is required."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What happens if someone is rude or inappropriate?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can skip or end the call instantly with one click. You can also report a user directly from the call screen. We take safety seriously and review all reports promptly. See our Safety Center for full details."
+                  }
+                }
+              ]
+            })
+          }}
+        />
+
+        <div className="max-w-3xl mx-auto space-y-10">
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-neutral-400 text-sm">Everything you need to know about Norinly</p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                q: "Is Norinly completely free?",
+                a: "Yes. Norinly is 100% free with no subscriptions, credit cards, or hidden fees. You can practice English speaking as much as you want at no cost."
+              },
+              {
+                q: "Do I need to create an account?",
+                a: "No account is required. Just click {'Start Speaking Now'} and you'll be matched with a real English learner instantly — no signup, no email, no passwords."
+              },
+              {
+                q: "Is my identity kept anonymous?",
+                a: "Completely. We don't ask for your name, email, or any personal information. Your voice is transmitted peer-to-peer via LiveKit WebRTC and is never recorded or stored on our servers."
+              },
+              {
+                q: "What level of English do I need?",
+                a: "All levels are welcome — from complete beginners to advanced speakers. Choose a topic room that matches your interests and comfort level, and go at your own pace."
+              },
+              {
+                q: "How does the matching work?",
+                a: "When you click 'Start Speaking', you enter a live queue. Our system pairs you with another English learner in under 10 seconds. Don't like your match? Skip and get rematched instantly."
+              },
+              {
+                q: "Is there video or just audio?",
+                a: "Voice only — by design. Removing video eliminates camera anxiety so you can focus 100% on speaking and listening. No webcam is ever required."
+              },
+              {
+                q: "Which browsers and devices are supported?",
+                a: "Any modern browser works — Chrome, Firefox, Edge, or Safari — on desktop or mobile. No app download or plugin needed, just open the site and start speaking."
+              },
+              {
+                q: "What if someone is rude or inappropriate?",
+                a: "End or skip the call instantly with one click. You can also report the user directly from the call screen. We review all reports promptly. Visit our Safety Center for more details."
+              }
+            ].map(({ q, a }, i) => (
+              <details
+                key={i}
+                className="group bg-neutral-900/60 border border-neutral-800 rounded-xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none hover:bg-neutral-800/40 transition-colors">
+                  <span className="text-white font-semibold text-sm sm:text-base">{q}</span>
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center text-neutral-400 group-open:rotate-45 transition-transform duration-200 text-lg leading-none">+</span>
+                </summary>
+                <div className="px-6 pb-5 pt-1 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/60">
+                  {a}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="text-center pt-4">
+            <p className="text-neutral-500 text-sm">
+              Still have questions?{' '}
+              <a href="/safety" className="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-2">
+                Visit our Safety Center
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-neutral-950 border-t border-neutral-900 py-12 px-4 sm:px-6 mt-auto">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
