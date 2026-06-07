@@ -13,6 +13,11 @@ const ISO_DATES: Record<string, string> = {
   'anonymous-english-practice-vs-tutoring': '2026-06-05T00:00:00Z',
   'best-free-cambly-alternative': '2026-05-28T00:00:00Z',
   'overcome-fear-of-speaking-english': '2026-05-12T00:00:00Z',
+  'how-to-practice-english-speaking-alone-at-home': '2026-06-07T00:00:00Z',
+  'english-speaking-practice-with-strangers-online-free': '2026-06-06T00:00:00Z',
+  'best-app-to-practice-english-speaking-2026': '2026-06-05T00:00:00Z',
+  'how-to-stop-being-nervous-speaking-english': '2026-06-04T00:00:00Z',
+  'free-english-conversation-partner-online': '2026-06-03T00:00:00Z',
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

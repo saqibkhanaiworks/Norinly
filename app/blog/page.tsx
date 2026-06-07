@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, BookOpen, Clock, Calendar, ArrowRight } from 'lucide-react';
+import { blogArticles } from '@/lib/blog-articles';
 
 export const metadata = {
   title: 'English Speaking Practice Blog | Norinly',
@@ -16,29 +17,23 @@ export const metadata = {
   },
 };
 
-const BLOG_POSTS = [
-  {
-    slug: 'anonymous-english-practice-vs-tutoring',
-    title: 'Why Anonymous English Practice Works Better Than Tutoring',
-    description: 'Traditional tutoring can feel formal and high-pressure. Learn how practicing English anonymously with peers reduces anxiety and helps build natural conversational confidence faster.',
-    date: 'June 05, 2026',
-    readTime: '4 min read'
-  },
-  {
-    slug: 'best-free-cambly-alternative',
-    title: 'The Best Free Cambly Alternative in 2026',
-    description: 'Looking to practice speaking English without spending hundreds of dollars a month? We compare Cambly and Norinly, highlighting how you can speak for free instantly.',
-    date: 'May 28, 2026',
-    readTime: '5 min read'
-  },
-  {
-    slug: 'overcome-fear-of-speaking-english',
-    title: 'How to Overcome the Fear of Speaking English',
-    description: 'Speaking anxiety holds millions of English students back. Read our actionable tips on how to push past the fear of making mistakes and start speaking fluently.',
-    date: 'May 12, 2026',
-    readTime: '6 min read'
-  }
-];
+// Sort newest-first by the ISO dates embedded in [slug]/page.tsx
+const ISO_DATES: Record<string, string> = {
+  'anonymous-english-practice-vs-tutoring': '2026-06-05T00:00:00Z',
+  'best-free-cambly-alternative': '2026-05-28T00:00:00Z',
+  'overcome-fear-of-speaking-english': '2026-05-12T00:00:00Z',
+  'how-to-practice-english-speaking-alone-at-home': '2026-06-07T00:00:00Z',
+  'english-speaking-practice-with-strangers-online-free': '2026-06-06T00:00:00Z',
+  'best-app-to-practice-english-speaking-2026': '2026-06-05T00:00:00Z',
+  'how-to-stop-being-nervous-speaking-english': '2026-06-04T00:00:00Z',
+  'free-english-conversation-partner-online': '2026-06-03T00:00:00Z',
+};
+
+const sortedArticles = [...blogArticles].sort((a, b) => {
+  const aDate = ISO_DATES[a.slug] ?? '2026-01-01T00:00:00Z';
+  const bDate = ISO_DATES[b.slug] ?? '2026-01-01T00:00:00Z';
+  return new Date(bDate).getTime() - new Date(aDate).getTime();
+});
 
 export default function BlogIndexPage() {
   return (
@@ -61,8 +56,8 @@ export default function BlogIndexPage() {
 
         {/* Blog Posts List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-          {BLOG_POSTS.map((post) => (
-            <div 
+          {sortedArticles.map((post) => (
+            <div
               key={post.slug}
               className="flex flex-col justify-between bg-neutral-900 border border-neutral-800 hover:border-neutral-700 p-6 rounded-2xl transition-all duration-200 group"
             >
