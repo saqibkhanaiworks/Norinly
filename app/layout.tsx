@@ -44,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark h-full">
       <head>
+        {/* WebSite JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -59,6 +60,22 @@ export default function RootLayout({
                 "query-input": "required name=search_term_string"
               }
             })
+          }}
+        />
+
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-NVDXCRVDRZ"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-NVDXCRVDRZ');
+            `,
           }}
         />
       </head>
