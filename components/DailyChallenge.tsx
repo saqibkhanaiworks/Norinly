@@ -41,11 +41,11 @@ export default function DailyChallenge() {
   const challenge = CHALLENGES[challengeIndex];
 
   return (
-    <div className="w-full bg-[#111111] border-l-4 border-[#3b82f6] rounded-r-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 transition-all duration-200">
+    <div className="w-full bg-white border border-slate-250/60 border-l-4 border-l-[#3b82f6] rounded-r-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 transition-all duration-200 shadow-sm">
       <div className="flex items-start gap-2.5">
         <span className="text-lg shrink-0" role="img" aria-label="lightbulb">💡</span>
-        <div className="text-sm text-neutral-200 font-medium leading-relaxed">
-          <span className="text-neutral-400 font-semibold mr-1">Today's challenge:</span>
+        <div className="text-sm text-slate-800 font-medium leading-relaxed">
+          <span className="text-slate-500 font-semibold mr-1">Today's challenge:</span>
           <span className={isExpanded ? '' : 'line-clamp-1 md:line-clamp-none'}>
             {challenge}
           </span>

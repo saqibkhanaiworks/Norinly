@@ -355,16 +355,16 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
   if (connectionError) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] p-6 max-w-sm mx-auto text-center space-y-6 animate-fade-in">
-        <div className="flex items-center justify-center w-16 h-16 bg-blue-950/20 border border-blue-900/40 rounded-full">
-          <ShieldAlert className="w-8 h-8 text-blue-400" />
+        <div className="flex items-center justify-center w-16 h-16 bg-blue-50 border border-blue-100 rounded-full">
+          <ShieldAlert className="w-8 h-8 text-blue-600" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-xl font-bold text-white">Connection Failed</h3>
-          <p className="text-neutral-400 text-sm">{connectionError}</p>
+          <h3 className="text-xl font-bold text-slate-900">Connection Failed</h3>
+          <p className="text-slate-500 text-sm">{connectionError}</p>
         </div>
         <button
           onClick={() => window.location.reload()}
-          className="w-full h-12 bg-white text-black font-semibold rounded-xl hover:bg-neutral-200 transition-colors"
+          className="w-full h-12 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-sm shadow-blue-100"
         >
           Try Again
         </button>
@@ -375,12 +375,12 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch animate-fade-in">
       {/* LEFT COLUMN: Voice Panel */}
-      <div className="relative flex flex-col items-center justify-between min-h-[480px] p-6 bg-neutral-900/50 border border-neutral-800/80 rounded-2xl backdrop-blur-md">
+      <div className="relative flex flex-col items-center justify-between min-h-[480px] p-6 bg-white border border-slate-200 rounded-2xl shadow-sm">
         {/* Monospaced Timer */}
         {isConnected && (
           <div 
             className="absolute top-3.5 left-6 font-mono text-[13px] font-semibold tracking-wider select-none pointer-events-none"
-            style={{ color: '#555555' }}
+            style={{ color: '#64748b' }}
           >
             {formatTime(elapsedSeconds)}
           </div>
@@ -388,7 +388,7 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
 
         {/* Country Flag Reveal Toast */}
         <div 
-          className={`absolute top-3.5 left-1/2 -translate-x-1/2 bg-[#0d1527]/90 border border-blue-900/40 text-blue-400 px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg shadow-blue-500/5 backdrop-blur-md z-30 transition-all duration-300 pointer-events-none ${
+          className={`absolute top-3.5 left-1/2 -translate-x-1/2 bg-blue-50 border border-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold shadow-md z-30 transition-all duration-300 pointer-events-none ${
             showFlagToast ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2'
           }`}
         >
@@ -398,16 +398,16 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
         {/* Top Header Controls */}
         <div className="flex items-center justify-between w-full">
           {/* Connection status indicator */}
-          <div className="flex items-center gap-2 bg-neutral-950/45 px-3 py-1.5 rounded-full border border-neutral-800 ml-auto">
+          <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 ml-auto">
             <span className={`relative flex h-2 w-2`}>
               {isConnected && !partnerLeft && (
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
               )}
               <span className={`relative inline-flex rounded-full h-2 w-2 ${
-                !isConnected ? 'bg-blue-500 animate-pulse' : partnerLeft ? 'bg-neutral-600' : 'bg-blue-400'
+                !isConnected ? 'bg-blue-500 animate-pulse' : partnerLeft ? 'bg-slate-400' : 'bg-blue-600'
               }`} />
             </span>
-            <span className="text-xs text-neutral-400 font-medium">
+            <span className="text-xs text-slate-500 font-medium">
               {!isConnected ? 'Connecting...' : partnerLeft ? 'Partner left' : 'Connected'}
             </span>
           </div>
@@ -416,7 +416,7 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
           {isConnected && (
             <button
               onClick={() => setShowReport(true)}
-              className="flex items-center justify-center w-9 h-9 bg-neutral-950/45 border border-neutral-800 rounded-xl text-neutral-500 hover:text-blue-400 hover:border-blue-500/20 transition-all duration-200 ml-3"
+              className="flex items-center justify-center w-9 h-9 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 hover:text-blue-650 hover:text-blue-600 hover:border-blue-200 transition-all duration-200 ml-3 cursor-pointer"
               title="Report User"
             >
               <Flag className="w-4 h-4" />
@@ -430,10 +430,10 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
             {/* Animated pulse rings based on speaking state */}
             {isConnected && !partnerLeft && !isMuted && (
               <>
-                <div className={`absolute inset-0 rounded-full bg-blue-500/5 border border-blue-500/10 transition-all duration-300 ${
+                <div className={`absolute inset-0 rounded-full bg-blue-600/5 border border-blue-600/10 transition-all duration-300 ${
                   localIsSpeaking ? 'animate-ping scale-110 opacity-70' : 'animate-pulse scale-100 opacity-30'
                 }`} />
-                <div className={`absolute inset-4 rounded-full bg-blue-500/5 border border-blue-500/10 transition-all duration-500 ${
+                <div className={`absolute inset-4 rounded-full bg-blue-600/5 border border-blue-600/10 transition-all duration-500 ${
                   localIsSpeaking ? 'scale-105 opacity-80' : 'scale-100 opacity-40'
                 }`} />
               </>
@@ -443,14 +443,14 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
             <button
               onClick={toggleMute}
               disabled={!isConnected}
-              className={`relative flex items-center justify-center w-24 h-24 rounded-full border transition-all duration-300 ${
+              className={`relative flex items-center justify-center w-24 h-24 rounded-full border transition-all duration-300 cursor-pointer ${
                 !isConnected
-                  ? 'bg-neutral-900 border-neutral-800 text-neutral-600 cursor-not-allowed'
+                  ? 'bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed'
                   : isMuted
-                  ? 'bg-blue-950/40 border-blue-900/40 text-blue-400 hover:bg-blue-950/70'
+                  ? 'bg-red-55 bg-red-50 border-red-200 text-red-650 text-red-600 hover:bg-red-100 shadow-sm shadow-red-50'
                   : localIsSpeaking
-                  ? 'bg-blue-600 border-blue-400 text-white shadow-lg shadow-blue-500/20'
-                  : 'bg-neutral-900 border-neutral-800 text-white hover:border-neutral-700 hover:bg-neutral-850'
+                  ? 'bg-blue-650 bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-100'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
               }`}
             >
               {isMuted ? <MicOff className="w-8 h-8" /> : <Mic className="w-8 h-8" />}
@@ -462,13 +462,13 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
             {isConnected && !partnerLeft && (
               <span className="text-xs font-semibold uppercase tracking-widest transition-all duration-300">
                 {isMuted ? (
-                  <span className="text-neutral-500">Muted</span>
+                  <span className="text-red-500">Muted</span>
                 ) : localIsSpeaking ? (
-                  <span className="text-blue-400 animate-pulse">You are speaking</span>
+                  <span className="text-blue-600 animate-pulse">You are speaking</span>
                 ) : partnerIsSpeaking ? (
-                  <span className="text-blue-300 animate-pulse">Partner is speaking</span>
+                  <span className="text-blue-500 animate-pulse">Partner is speaking</span>
                 ) : (
-                  <span className="text-neutral-500">Listening...</span>
+                  <span className="text-slate-400">Listening...</span>
                 )}
               </span>
             )}
@@ -477,31 +477,31 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
 
         {/* Disconnect Alert / Banner */}
         {partnerLeft && (
-          <div className="w-full bg-blue-950/20 border border-blue-900/40 p-4 rounded-xl text-center space-y-1 mb-4 animate-fade-in">
-            <p className="text-blue-400 font-semibold text-sm">Your partner left</p>
-            <p className="text-neutral-400 text-xs font-medium">Skip to find someone new immediately.</p>
+          <div className="w-full bg-blue-50 border border-blue-100 p-4 rounded-xl text-center space-y-1 mb-4 animate-fade-in">
+            <p className="text-blue-600 font-semibold text-sm">Your partner left</p>
+            <p className="text-slate-550 text-slate-500 text-xs font-medium">Skip to find someone new immediately.</p>
           </div>
         )}
 
         {/* Sliding Topic Card */}
         <div 
-          className={`absolute bottom-22 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[320px] bg-[#1a1a1a] border border-[#222222] rounded-[12px] p-4 shadow-2xl z-20 transition-all duration-200 ease-out ${
+          className={`absolute bottom-22 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[320px] bg-white border border-slate-200 rounded-[12px] p-4 shadow-xl z-20 transition-all duration-200 ease-out ${
             showPrompt ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
           }`}
         >
           <button 
             type="button"
             onClick={() => setShowPrompt(false)}
-            className="absolute top-2.5 right-2.5 text-neutral-500 hover:text-neutral-300 transition-colors"
+            className="absolute top-2.5 right-2.5 text-slate-400 hover:text-slate-650 hover:text-slate-600 transition-colors cursor-pointer"
             aria-label="Close prompt"
           >
             <X className="w-3.5 h-3.5" />
           </button>
           <div className="pr-4 py-0.5 text-left">
-            <span className="text-[10px] text-blue-400 font-bold uppercase tracking-wider block mb-1">
+            <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wider block mb-1">
               Topic Suggestion
             </span>
-            <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed font-semibold">
+            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
               {CONVERSATION_PROMPTS[promptIndex]}
             </p>
           </div>
@@ -512,7 +512,7 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
           <button
             onClick={handleSkip}
             disabled={!isConnected}
-            className="flex-1 h-12 bg-white hover:bg-neutral-200 disabled:bg-neutral-800 disabled:text-neutral-500 disabled:cursor-not-allowed text-black font-bold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm"
+            className="flex-1 h-12 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed text-white font-bold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm shadow-sm shadow-blue-100 cursor-pointer"
           >
             {partnerLeft ? 'Find New' : 'Skip'}
             <ArrowRight className="w-4 h-4 shrink-0" />
@@ -521,35 +521,35 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
           <button
             onClick={handleTopicClick}
             disabled={!isConnected}
-            className="flex-1 h-12 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-850 disabled:bg-neutral-900 disabled:text-neutral-650 disabled:border-neutral-900 disabled:cursor-not-allowed text-neutral-200 font-semibold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm"
+            className="flex-1 h-12 bg-white border border-slate-200 hover:bg-slate-50 disabled:bg-slate-50 disabled:text-slate-400 disabled:cursor-not-allowed text-slate-700 font-semibold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm shadow-sm cursor-pointer"
           >
             💬 Need a topic?
           </button>
 
           <button
             onClick={handleEnd}
-            className="flex-1 h-12 bg-neutral-950 border border-neutral-800 hover:border-blue-900/50 hover:text-blue-400 text-neutral-300 font-semibold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm"
+            className="flex-1 h-12 bg-white border border-slate-200 hover:border-red-200 hover:text-red-600 text-slate-600 font-semibold rounded-xl flex items-center justify-center gap-1 transition-all duration-200 text-xs sm:text-sm shadow-sm cursor-pointer group"
           >
-            <PhoneOff className="w-4 h-4 shrink-0 text-blue-400" />
+            <PhoneOff className="w-4 h-4 shrink-0 text-red-500 group-hover:text-red-650" />
             End Call
           </button>
         </div>
       </div>
 
       {/* RIGHT COLUMN: Chat Panel */}
-      <div className="flex flex-col justify-between min-h-[480px] bg-neutral-900/50 border border-neutral-800/80 rounded-2xl overflow-hidden backdrop-blur-md">
+      <div className="flex flex-col justify-between min-h-[480px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {/* Chat Header */}
-        <div className="flex items-center gap-2.5 px-6 py-4 border-b border-neutral-800/80 bg-neutral-950/30">
-          <MessageSquare className="w-4 h-4 text-blue-400" />
-          <h3 className="text-sm font-bold text-white">Peer Chat</h3>
+        <div className="flex items-center gap-2.5 px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+          <MessageSquare className="w-4 h-4 text-blue-600" />
+          <h3 className="text-sm font-bold text-slate-800">Peer Chat</h3>
         </div>
 
         {/* Chat Message Stream */}
         <div className="flex-1 overflow-y-auto p-6 space-y-4 max-h-[340px]">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-12">
-              <MessageSquare className="w-8 h-8 text-neutral-700 mb-2" />
-              <p className="text-xs text-neutral-500 max-w-[180px] leading-relaxed">
+              <MessageSquare className="w-8 h-8 text-slate-300 mb-2" />
+              <p className="text-xs text-slate-450 text-slate-400 max-w-[180px] leading-relaxed">
                 {!isConnected ? 'Waiting for connection...' : 'Chat will activate once connected.'}
               </p>
             </div>
@@ -561,7 +561,7 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
               if (isSystem) {
                 return (
                   <div key={idx} className="flex justify-center">
-                    <span className="text-[10px] font-semibold text-neutral-500 bg-neutral-950/40 px-3 py-1 rounded-full border border-neutral-800/40">
+                    <span className="text-[10px] font-semibold text-slate-550 text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
                       {msg.text}
                     </span>
                   </div>
@@ -571,21 +571,21 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
               return (
                 <div key={idx} className={`flex flex-col space-y-1 ${isLocal ? 'items-end' : 'items-start'}`}>
                   {/* Sender Name */}
-                  <span className="text-[10px] text-neutral-500 font-semibold px-1">
+                  <span className="text-[10px] text-slate-450 text-slate-400 font-semibold px-1">
                     {msg.sender}
                   </span>
                   
                   {/* Bubble text */}
                   <div className={`max-w-[85%] px-3.5 py-2 rounded-2xl text-sm leading-relaxed ${
                     isLocal 
-                      ? 'bg-blue-600 text-white font-medium rounded-tr-none shadow-md shadow-blue-500/10' 
-                      : 'bg-neutral-800 text-white rounded-tl-none border border-neutral-800'
+                      ? 'bg-blue-600 text-white font-medium rounded-tr-none shadow-md shadow-blue-100' 
+                      : 'bg-slate-105 bg-slate-100 text-slate-800 rounded-tl-none border border-slate-100'
                   }`}>
                     {msg.text}
                   </div>
                   
                   {/* Timestamp */}
-                  <span className="text-[9px] text-neutral-600 px-1 font-medium">
+                  <span className="text-[9px] text-slate-400 px-1 font-medium">
                     {msg.time}
                   </span>
                 </div>
@@ -596,22 +596,22 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
         </div>
 
         {/* Chat Input form */}
-        <form onSubmit={handleSendMessage} className="p-4 border-t border-neutral-800/80 bg-neutral-950/20 flex gap-2">
+        <form onSubmit={handleSendMessage} className="p-4 border-t border-slate-150 border-slate-100 bg-slate-50/20 flex gap-2">
           <input
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             disabled={!isConnected || partnerLeft}
             placeholder={!isConnected ? 'Connecting...' : partnerLeft ? 'Partner disconnected' : 'Type a message...'}
-            className="flex-1 h-11 bg-neutral-950 disabled:bg-neutral-950/40 border border-neutral-800 rounded-xl px-4 py-2 text-white placeholder-neutral-600 text-sm focus:outline-none focus:border-neutral-700 transition-colors"
+            className="flex-1 h-11 bg-white disabled:bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-800 placeholder-slate-400 text-sm focus:outline-none focus:border-slate-300 transition-colors"
           />
           <button
             type="submit"
             disabled={!inputText.trim() || !isConnected || partnerLeft}
-            className={`flex items-center justify-center w-11 h-11 rounded-xl transition-all ${
+            className={`flex items-center justify-center w-11 h-11 rounded-xl transition-all cursor-pointer ${
               inputText.trim() && isConnected && !partnerLeft
-                ? 'bg-white text-black hover:bg-neutral-250 cursor-pointer active:scale-95'
-                : 'bg-neutral-800 text-neutral-500 cursor-not-allowed'
+                ? 'bg-blue-600 text-white hover:bg-blue-700 active:scale-95 shadow-sm shadow-blue-100'
+                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
             }`}
           >
             <Send className="w-4 h-4" />

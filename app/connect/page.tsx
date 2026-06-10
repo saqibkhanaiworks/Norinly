@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import MicPermissionGate from '@/components/MicPermissionGate';
 import MatchQueue from '@/components/MatchQueue';
 import VoiceRoom from '@/components/VoiceRoom';
-import NotifyMeButton from '@/components/NotifyMeButton';
 import { ArrowLeft, CheckCircle, User, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -70,25 +69,25 @@ export default function ConnectPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col justify-center bg-gradient-to-b from-[#0a0a0a] to-neutral-950 py-10 px-4 sm:px-6 relative">
+    <div className="flex-1 flex flex-col justify-center bg-[#f8f9fc] py-10 px-4 sm:px-6 relative">
       {/* Return home link (only when not in-call and not matched) */}
       {state !== 'in-call' && state !== 'matched' && (
         <div className="absolute top-6 left-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-850 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
         </div>
       )}
 
-      <div className={`w-full mx-auto transition-all duration-500 ${state === 'in-call' ? 'max-w-4xl' : 'max-w-md'}`}>
+      <div className={`w-full mx-auto transition-all duration-500 ${state === 'in-call' || state === 'queuing' ? 'max-w-6xl' : 'max-w-md'}`}>
         {state === 'level-select' && (
-          <div className="bg-neutral-900/50 border border-neutral-800/80 p-8 rounded-2xl space-y-6 text-center animate-fade-in shadow-2xl">
+          <div className="bg-white border border-slate-200/80 p-8 rounded-2xl space-y-6 text-center animate-fade-in shadow-md">
             <div className="space-y-2">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">How's your English feeling today?</h2>
-              <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">How's your English feeling today?</h2>
+              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
                 Choose a tag to match with similar speakers.
               </p>
             </div>
@@ -106,14 +105,14 @@ export default function ConnectPage() {
                     onClick={() => handleLevelSelect(lvl.key)}
                     className={`flex items-center gap-4 text-left p-4 rounded-xl border-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99] min-h-[80px] w-full ${
                       isSelected
-                        ? 'border-[#3b82f6] bg-[#3b82f6]/5'
-                        : 'border-neutral-800 bg-[#111111] hover:border-neutral-700'
+                        ? 'border-blue-600 bg-blue-50/50'
+                        : 'border-slate-200 bg-white hover:border-slate-355 hover:border-slate-300 hover:bg-slate-50'
                     }`}
                   >
                     <span className="text-3xl shrink-0">{lvl.emoji}</span>
                     <div className="space-y-0.5">
-                      <div className="text-sm font-bold text-white">{lvl.title}</div>
-                      <div className="text-xs text-neutral-400 leading-normal">{lvl.desc}</div>
+                      <div className="text-sm font-bold text-slate-900">{lvl.title}</div>
+                      <div className="text-xs text-slate-500 leading-normal">{lvl.desc}</div>
                     </div>
                   </button>
                 );
@@ -130,24 +129,21 @@ export default function ConnectPage() {
         )}
 
         {state === 'queuing' && (
-          <div className="space-y-4">
-            <MatchQueue
-              onMatched={handleMatched}
-              onCancel={handleCancelMatch}
-              selectedLevel={selectedLevel}
-            />
-            <NotifyMeButton />
-          </div>
+          <MatchQueue
+            onMatched={handleMatched}
+            onCancel={handleCancelMatch}
+            selectedLevel={selectedLevel}
+          />
         )}
 
         {state === 'matched' && (
           <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-6 text-center animate-fade-in">
-            <div className="flex items-center justify-center w-20 h-20 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              <CheckCircle className="w-10 h-10 text-blue-400 animate-pulse" />
+            <div className="flex items-center justify-center w-20 h-20 bg-blue-50 border border-blue-100 rounded-full">
+              <CheckCircle className="w-10 h-10 text-blue-600 animate-pulse" />
             </div>
             <div className="space-y-1">
-              <h2 className="text-2xl font-bold text-white">Found someone!</h2>
-              <p className="text-neutral-400 text-sm">Connecting voice lines...</p>
+              <h2 className="text-2xl font-bold text-slate-900">Found someone!</h2>
+              <p className="text-slate-500 text-sm">Connecting voice lines...</p>
             </div>
           </div>
         )}
@@ -155,8 +151,8 @@ export default function ConnectPage() {
         {state === 'in-call' && matchDetails && (
           <div className="space-y-6">
             <div className="text-center space-y-2 mb-2">
-              <h2 className="text-xl font-bold text-white">1-on-1 Practice</h2>
-              <p className="text-xs text-neutral-400">
+              <h2 className="text-xl font-bold text-slate-900">1-on-1 Practice</h2>
+              <p className="text-xs text-slate-500">
                 You are paired with a random English learner. Keep the conversation flowing!
               </p>
             </div>

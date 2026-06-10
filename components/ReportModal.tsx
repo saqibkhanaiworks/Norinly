@@ -57,16 +57,16 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
       <div 
-        className="relative w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-2xl p-6 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         {!success && (
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-neutral-400 hover:text-white p-1 rounded-lg hover:bg-neutral-800 transition-colors"
+            className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -74,12 +74,12 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
 
         {success ? (
           <div className="flex flex-col items-center py-8 text-center space-y-4 animate-fade-in">
-            <div className="flex items-center justify-center w-16 h-16 bg-blue-500/10 border border-blue-500/25 rounded-full">
-              <CheckCircle className="w-8 h-8 text-blue-400" />
+            <div className="flex items-center justify-center w-16 h-16 bg-blue-50 border border-blue-100 rounded-full">
+              <CheckCircle className="w-8 h-8 text-blue-600" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-xl font-bold text-white">Report Submitted</h3>
-              <p className="text-neutral-400 text-sm">
+              <h3 className="text-xl font-bold text-slate-900">Report Submitted</h3>
+              <p className="text-slate-500 text-sm">
                 Thank you for keeping Norinly safe. We will review this session.
               </p>
             </div>
@@ -87,24 +87,24 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                <ShieldAlert className="w-5 h-5 text-blue-400" />
+              <div className="flex items-center justify-center w-10 h-10 bg-blue-50 border border-blue-100 rounded-xl">
+                <ShieldAlert className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Report Session</h3>
-                <p className="text-neutral-400 text-xs">Help us maintain a safe community</p>
+                <h3 className="text-lg font-bold text-slate-900">Report Session</h3>
+                <p className="text-slate-500 text-xs">Help us maintain a safe community</p>
               </div>
             </div>
 
             {error && (
-              <div className="p-3 bg-blue-950/20 border border-blue-900/40 rounded-xl text-blue-400 text-xs">
+              <div className="p-3 bg-red-50 border border-red-100 rounded-xl text-red-605 text-red-605 text-red-650 text-red-600 text-xs">
                 {error}
               </div>
             )}
 
             {/* Reasons List */}
             <div className="space-y-2.5">
-              <label className="text-xs font-semibold text-neutral-400 uppercase tracking-wider block">
+              <label className="text-xs font-semibold text-slate-550 text-slate-500 uppercase tracking-wider block">
                 Reason for report
               </label>
               <div className="grid grid-cols-1 gap-2">
@@ -113,8 +113,8 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
                     key={r}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer transition-all ${
                       reason === r
-                        ? 'bg-neutral-800/80 border-white text-white font-medium'
-                        : 'bg-neutral-950/45 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-neutral-300'
+                        ? 'bg-blue-50 border-blue-600 text-blue-800 font-medium'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-800'
                     }`}
                   >
                     <input
@@ -126,9 +126,9 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
                       className="sr-only"
                     />
                     <span className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                      reason === r ? 'border-white bg-white' : 'border-neutral-700 bg-transparent'
+                      reason === r ? 'border-blue-600 bg-blue-600' : 'border-slate-300 bg-transparent'
                     }`}>
-                      {reason === r && <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />}
+                      {reason === r && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
                     </span>
                     <span className="text-sm">{r}</span>
                   </label>
@@ -138,15 +138,15 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
 
             {/* Additional details */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-neutral-400 uppercase tracking-wider block">
-                Details <span className="text-neutral-600">(optional)</span>
+              <label className="text-xs font-semibold text-slate-550 text-slate-500 uppercase tracking-wider block">
+                Details <span className="text-slate-400">(optional)</span>
               </label>
               <textarea
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
                 placeholder="Describe what happened..."
                 rows={3}
-                className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-3 text-white placeholder-neutral-600 text-sm focus:outline-none focus:border-neutral-600 transition-colors resize-none"
+                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 text-sm focus:outline-none focus:border-slate-300 transition-colors resize-none"
               />
             </div>
 
@@ -156,17 +156,17 @@ export default function ReportModal({ sessionToken, onClose }: ReportModalProps)
                 type="button"
                 onClick={onClose}
                 disabled={submitting}
-                className="flex-1 h-12 bg-neutral-850 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 hover:border-neutral-700 font-semibold rounded-xl transition-all duration-200 text-sm"
+                className="flex-1 h-12 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 font-semibold rounded-xl transition-all duration-200 text-sm cursor-pointer shadow-sm"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={submitting || !reason}
-                className={`flex-1 h-12 font-semibold rounded-xl text-sm transition-all duration-200 ${
+                className={`flex-1 h-12 font-semibold rounded-xl text-sm transition-all duration-200 cursor-pointer ${
                   reason && !submitting
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20'
-                    : 'bg-neutral-800 text-neutral-500 cursor-not-allowed'
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-100'
+                    : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 }`}
               >
                 {submitting ? 'Submitting...' : 'Submit Report'}

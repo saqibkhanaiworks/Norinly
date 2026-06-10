@@ -173,12 +173,12 @@ export default function StatsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-[#04060d] py-10 px-4 sm:px-6 relative">
+    <div className="flex-1 flex flex-col bg-[#f8f9fc] py-10 px-4 sm:px-6 relative">
       {/* Return home link */}
       <div className="absolute top-6 left-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
@@ -187,95 +187,95 @@ export default function StatsPage() {
       <div className="max-w-2xl w-full mx-auto mt-12 sm:mt-8 space-y-8 animate-fade-in">
         {/* Title Header */}
         <div className="space-y-1 text-center sm:text-left">
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">My Progress</h1>
-          <p className="text-neutral-400 text-sm">Track your English speaking sessions and feedback.</p>
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">My Progress</h1>
+          <p className="text-slate-500 text-sm">Track your English speaking sessions and feedback.</p>
         </div>
 
         {loading ? (
           <div className="min-h-[300px] flex items-center justify-center">
-            <span className="animate-pulse text-sm text-neutral-500 font-semibold">Loading stats...</span>
+            <span className="animate-pulse text-sm text-slate-400 font-semibold">Loading stats...</span>
           </div>
         ) : (
           <div className="space-y-6">
             {/* Top Row Grid */}
             <div className="grid grid-cols-2 gap-4">
               {/* Card 1: Total Minutes */}
-              <div className="bg-neutral-900/40 border border-neutral-800/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px]">
-                <div className="flex items-center justify-between text-neutral-500">
+              <div className="bg-white border border-slate-200/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px] shadow-sm">
+                <div className="flex items-center justify-between text-slate-400">
                   <span className="text-xs font-bold uppercase tracking-wider">Minutes Spoken</span>
-                  <Clock className="w-4 h-4 text-blue-400" />
+                  <Clock className="w-4 h-4 text-purple-600" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-white">{stats.totalMinutes}m</div>
-                  <p className="text-[10px] text-neutral-500 font-medium">Total time speaking</p>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900">{stats.totalMinutes}m</div>
+                  <p className="text-[10px] text-slate-500 font-medium">Total time speaking</p>
                 </div>
               </div>
 
               {/* Card 2: Streak */}
-              <div className="bg-neutral-900/40 border border-neutral-800/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px]">
-                <div className="flex items-center justify-between text-neutral-500">
+              <div className="bg-white border border-slate-200/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px] shadow-sm">
+                <div className="flex items-center justify-between text-slate-400">
                   <span className="text-xs font-bold uppercase tracking-wider">Active Streak</span>
-                  <Flame className="w-4 h-4 text-blue-400 fill-blue-400/20" />
+                  <Flame className="w-4 h-4 text-orange-550 text-orange-500 fill-orange-500/20" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-white">{stats.streak} {stats.streak === 1 ? 'day' : 'days'}</div>
-                  <p className="text-[10px] text-neutral-500 font-medium">Consecutive practice days</p>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900">{stats.streak} {stats.streak === 1 ? 'day' : 'days'}</div>
+                  <p className="text-[10px] text-slate-500 font-medium">Consecutive practice days</p>
                 </div>
               </div>
 
               {/* Card 3: Avg Session */}
-              <div className="bg-neutral-900/40 border border-neutral-800/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px]">
-                <div className="flex items-center justify-between text-neutral-500">
+              <div className="bg-white border border-slate-200/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px] shadow-sm">
+                <div className="flex items-center justify-between text-slate-400">
                   <span className="text-xs font-bold uppercase tracking-wider">Average Call</span>
-                  <Activity className="w-4 h-4 text-blue-400" />
+                  <Activity className="w-4 h-4 text-indigo-600" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-lg sm:text-2xl font-black text-white">{stats.avgDurationText}</div>
-                  <p className="text-[10px] text-neutral-500 font-medium">Per voice session</p>
+                  <div className="text-lg sm:text-2xl font-black text-slate-900">{stats.avgDurationText}</div>
+                  <p className="text-[10px] text-slate-500 font-medium">Per voice session</p>
                 </div>
               </div>
 
               {/* Card 4: Top Vibe */}
-              <div className="bg-neutral-900/40 border border-neutral-800/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px]">
-                <div className="flex items-center justify-between text-neutral-500">
+              <div className="bg-white border border-slate-200/80 p-5 rounded-2xl flex flex-col justify-between min-h-[110px] shadow-sm">
+                <div className="flex items-center justify-between text-slate-400">
                   <span className="text-xs font-bold uppercase tracking-wider">Common Vibe</span>
-                  <Smile className="w-4 h-4 text-blue-400" />
+                  <Smile className="w-4 h-4 text-blue-600" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-lg sm:text-2xl font-black text-white flex items-center gap-1.5">
+                  <div className="text-lg sm:text-2xl font-black text-slate-900 flex items-center gap-1.5">
                     {stats.commonVibe !== 'None' && (
                       <span>{getVibeEmoji(stats.commonVibe)}</span>
                     )}
                     <span>{stats.commonVibe}</span>
                   </div>
-                  <p className="text-[10px] text-neutral-500 font-medium">Derived from call feedback</p>
+                  <p className="text-[10px] text-slate-500 font-medium">Derived from call feedback</p>
                 </div>
               </div>
             </div>
 
             {/* Weekly Comparison Strip */}
-            <div className="bg-neutral-900/40 border border-neutral-800/80 p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="bg-white border border-slate-200/80 p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-neutral-950/80 border border-neutral-800 rounded-xl flex items-center justify-center shrink-0">
-                  <Calendar className="w-4 h-4 text-blue-400" />
+                <div className="w-10 h-10 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center shrink-0">
+                  <Calendar className="w-4 h-4 text-purple-600" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-sm font-bold text-white">Sessions comparison</h3>
-                  <p className="text-xs text-neutral-500">Comparing current week to last week.</p>
+                  <h3 className="text-sm font-bold text-slate-900">Sessions comparison</h3>
+                  <p className="text-xs text-slate-500">Comparing current week to last week.</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-right">
                 <div className="text-left sm:text-right">
-                  <div className="text-lg font-black text-white">
+                  <div className="text-lg font-black text-slate-900">
                     {stats.thisWeekCount} vs {stats.lastWeekCount}
                   </div>
-                  <div className="text-[10px] text-neutral-400 font-semibold uppercase tracking-wider">
+                  <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">
                     {stats.thisWeekCount >= stats.lastWeekCount ? (
-                      <span className="text-blue-400">
+                      <span className="text-blue-600">
                         +{stats.lastWeekCount > 0 ? Math.round(((stats.thisWeekCount - stats.lastWeekCount) / stats.lastWeekCount) * 100) : stats.thisWeekCount * 100}% up
                       </span>
                     ) : (
-                      <span className="text-neutral-500">
+                      <span className="text-slate-400">
                         -{Math.round(((stats.lastWeekCount - stats.thisWeekCount) / stats.lastWeekCount) * 100)}% down
                       </span>
                     )}
@@ -285,40 +285,40 @@ export default function StatsPage() {
             </div>
 
             {/* Bar Chart Section */}
-            <div className="bg-neutral-900/40 border border-neutral-800/80 p-6 rounded-2xl space-y-4">
+            <div className="bg-white border border-slate-200/80 p-6 rounded-2xl space-y-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <BarChart2 className="w-4 h-4 text-blue-400" />
-                  <h3 className="text-sm font-bold text-white">Last 7 Days speaking</h3>
+                  <BarChart2 className="w-4 h-4 text-purple-600" />
+                  <h3 className="text-sm font-bold text-slate-900">Last 7 Days speaking</h3>
                 </div>
-                <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">Minutes Spoken</span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Minutes Spoken</span>
               </div>
 
               {/* SVG Chart Graphic */}
-              <div className="flex justify-center py-2 bg-neutral-950/20 border border-neutral-800/40 rounded-xl">
+              <div className="flex justify-center py-2 bg-slate-50/50 border border-slate-100 rounded-xl">
                 <svg width="100%" height={svgHeight + 25} viewBox={`0 0 ${svgWidth} ${svgHeight + 25}`} className="overflow-visible max-w-sm" role="img" aria-label="Speaking practice statistics chart">
                   {/* Grid Lines */}
                   {[0, 0.25, 0.5, 0.75, 1].map((r, i) => {
-                    const y = svgHeight * (1 - r);
-                    return (
-                      <line
-                        key={i}
-                        x1="0"
-                        y1={y}
-                        x2={svgWidth}
-                        y2={y}
-                        stroke="#1a1a1a"
-                        strokeWidth="1"
-                        strokeDasharray="4 4"
-                      />
-                    );
+                     const y = svgHeight * (1 - r);
+                     return (
+                       <line
+                         key={i}
+                         x1="0"
+                         y1={y}
+                         x2={svgWidth}
+                         y2={y}
+                         stroke="#e2e8f0"
+                         strokeWidth="1"
+                         strokeDasharray="4 4"
+                       />
+                     );
                   })}
 
                   {/* Gradient definition */}
                   <defs>
                     <linearGradient id="bar-grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#60a5fa" />
-                      <stop offset="100%" stopColor="#1d4ed8" />
+                      <stop offset="0%" stopColor="#8b5cf6" />
+                      <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
 
@@ -336,7 +336,7 @@ export default function StatsPage() {
                           <text
                             x={x + barWidth / 2}
                             y={y - 6}
-                            fill="#93c5fd"
+                            fill="#4f46e5"
                             fontSize="9"
                             fontWeight="bold"
                             textAnchor="middle"
@@ -361,7 +361,7 @@ export default function StatsPage() {
                         <text
                           x={x + barWidth / 2}
                           y={svgHeight + 16}
-                          fill="#555555"
+                          fill="#94a3b8"
                           fontSize="10"
                           fontWeight="bold"
                           textAnchor="middle"

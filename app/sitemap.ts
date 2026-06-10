@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: 'https://norinly.live', lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
     { url: 'https://norinly.live/connect', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://norinly.live/learn', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: 'https://norinly.live/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     ...blogEntries,
     { url: 'https://norinly.live/compare/cambly-alternative', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

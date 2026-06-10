@@ -107,16 +107,16 @@ export default function NotifyMeButton() {
   return (
     <div className="w-full flex justify-center mt-3 animate-fade-in">
       {isSubscribed ? (
-        <span className="text-[11px] text-neutral-500 font-semibold flex items-center gap-1.5 bg-neutral-900 px-3 py-1.5 rounded-full border border-neutral-800/60">
+        <span className="text-[11px] text-slate-500 font-semibold flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
           <span>🔔 Notifications active</span>
-          <span className="text-blue-400">✓</span>
+          <span className="text-blue-600 font-bold">✓</span>
         </span>
       ) : (
         <button
           type="button"
           onClick={handleSubscribe}
           disabled={loading}
-          className="h-10 px-4 bg-neutral-900 border border-neutral-850 hover:bg-neutral-850 hover:border-neutral-700 disabled:opacity-50 text-neutral-300 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer active:scale-[0.98]"
+          className="h-10 px-4 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 text-slate-700 hover:text-slate-900 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer active:scale-[0.98] shadow-sm"
         >
           {loading ? (
             <span className="animate-pulse">Setting up...</span>

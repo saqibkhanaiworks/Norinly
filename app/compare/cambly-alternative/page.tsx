@@ -26,37 +26,37 @@ export default function CamblyAlternativePage() {
   ];
 
   return (
-    <div className="flex-1 bg-gradient-to-b from-[#04060d] to-neutral-950 py-16 px-4 sm:px-6">
+    <div className="flex-1 bg-[#f8f9fc] py-16 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto space-y-12">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
 
         <div className="space-y-4">
-          <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl">
             The Best Free Cambly Alternative — Norinly
           </h1>
-          <p className="text-neutral-400 text-lg">
+          <p className="text-slate-600 text-lg">
             Practice English speaking naturally with real people worldwide, instantly, without paying expensive hourly tutor fees.
           </p>
         </div>
 
         {/* Comparison Table */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden">
+        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-neutral-800 bg-neutral-950/50">
-                <th className="p-4 sm:p-5 text-sm font-semibold text-neutral-400">Feature</th>
-                <th className="p-4 sm:p-5 text-sm font-semibold text-neutral-400">Cambly</th>
-                <th className="p-4 sm:p-5 text-sm font-semibold text-white">Norinly</th>
+              <tr className="border-b border-slate-200 bg-slate-50">
+                <th className="p-4 sm:p-5 text-sm font-semibold text-slate-500">Feature</th>
+                <th className="p-4 sm:p-5 text-sm font-semibold text-slate-500">Cambly</th>
+                <th className="p-4 sm:p-5 text-sm font-semibold text-slate-900">Norinly</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-850">
+            <tbody className="divide-y divide-slate-100">
               {comparison.map((row) => (
-                <tr key={row.feature} className="hover:bg-neutral-900/40 transition-colors">
-                  <td className="p-4 sm:p-5 text-sm font-semibold text-white">{row.feature}</td>
-                  <td className="p-4 sm:p-5 text-sm text-neutral-400">{row.cambly}</td>
-                  <td className="p-4 sm:p-5 text-sm text-blue-400 font-semibold">{row.norinly}</td>
+                <tr key={row.feature} className="hover:bg-slate-50/50 transition-colors">
+                  <td className="p-4 sm:p-5 text-sm font-semibold text-slate-800">{row.feature}</td>
+                  <td className="p-4 sm:p-5 text-sm text-slate-500">{row.cambly}</td>
+                  <td className="p-4 sm:p-5 text-sm text-blue-600 font-semibold">{row.norinly}</td>
                 </tr>
               ))}
             </tbody>
@@ -64,27 +64,27 @@ export default function CamblyAlternativePage() {
         </div>
 
         {/* Highlight points */}
-        <div className="space-y-6 text-neutral-300">
-          <h2 className="text-2xl font-bold text-white">Why Choose a Peer-to-Peer Alternative?</h2>
-          <p className="text-sm text-neutral-400 leading-relaxed">
+        <div className="space-y-6 text-slate-700">
+          <h2 className="text-2xl font-bold text-slate-900">Why Choose a Peer-to-Peer Alternative?</h2>
+          <p className="text-sm text-slate-500 leading-relaxed">
             While native tutors are helpful for advanced grammar feedback, most English students already understand grammar rules. What they lack is the **opportunity to speak** and break the mental barrier of translation.
           </p>
-          <p className="text-sm text-neutral-400 leading-relaxed">
+          <p className="text-sm text-slate-500 leading-relaxed">
             Norinly solves this by matching you with other motivated language learners around the world. Because you are both learning, there is no pressure or fear of judgment, allowing you to build fluid speaking skills for free.
           </p>
         </div>
 
         {/* CTA */}
-        <div className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl text-center space-y-6">
+        <div className="bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-white">Ready to start practicing?</h3>
-            <p className="text-neutral-400 text-sm max-w-sm mx-auto">
+            <h3 className="text-xl font-bold text-slate-900">Ready to start practicing?</h3>
+            <p className="text-slate-500 text-sm max-w-sm mx-auto">
               Skip the expensive subscription. Get matched and speak to someone today.
             </p>
           </div>
           <Link
             href="/connect"
-            className="inline-flex h-12 px-8 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl transition-all duration-200 text-sm items-center justify-center gap-2 group"
+            className="inline-flex h-12 px-8 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-200 text-sm items-center justify-center gap-2 group shadow-md shadow-blue-100 cursor-pointer"
           >
             Start Speaking Free
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #04060d; /* Extremely deep blue-black */
-  --foreground: #ffffff;
+  --background: #f8f9fc; /* Soft gray/lavender off-white */
+  --foreground: #0f172a; /* Slate 900 */
 }
 
 @theme {
-  --color-background: #04060d;
-  --color-foreground: #ffffff;
+  --color-background: #f8f9fc;
+  --color-foreground: #0f172a;
   
-  --color-neutral-850: #0d111d; /* Deep blue-gray-black */
-  --color-surface-elevated: #121826; /* Sleek surface elevated */
-  --color-border-dark: #1e293b; /* Premium slate-blue border */
-  --color-accent-green: #3b82f6; /* Re-mapped to blue to ensure fallback safety */
-  --color-accent-red: #1e3a8a; /* Re-mapped to deep blue */
+  --color-neutral-850: #f1f5f9; /* Light slate gray */
+  --color-surface-elevated: #ffffff; /* Card surface */
+  --color-border-dark: #e2e8f0; /* Slate border */
+  --color-accent-green: #10b981; /* Green */
+  --color-accent-red: #ef4444; /* Red */
   --color-accent-blue: #3b82f6;
   
   /* Additional blue tones for beautiful layers */
-  --color-blue-glow: #60a5fa;
-  --color-navy-dark: #090e1a;
-  --color-navy-light: #1e293b;
+  --color-blue-glow: #3b82f6;
+  --color-navy-dark: #f8f9fc;
+  --color-navy-light: #f1f5f9;
 }
 
 body {
@@ -81,10 +81,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #94a3b8;
 }
+
 

@@ -74,7 +74,7 @@ export default async function BlogArticlePage({ params }: Props) {
   };
 
   return (
-    <div className="flex-1 bg-gradient-to-b from-[#0a0a0a] to-neutral-950 py-16 px-6 sm:px-8">
+    <div className="flex-1 bg-[#f8f9fc] py-16 px-6 sm:px-8">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -85,17 +85,17 @@ export default async function BlogArticlePage({ params }: Props) {
         {/* Back Link */}
         <Link 
           href="/blog" 
-          className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Blog
         </Link>
 
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {article.title}
           </h1>
-          <div className="flex items-center gap-4 text-xs text-neutral-500 font-medium border-b border-neutral-900 pb-4">
+          <div className="flex items-center gap-4 text-xs text-slate-400 font-medium border-b border-slate-200 pb-4">
             <span>{article.date}</span>
             <span>•</span>
             <span>{article.readTime}</span>
@@ -103,10 +103,10 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         {/* Content with custom local styles for exact typography */}
-        <div className="blog-content text-[#cccccc] text-base leading-[1.8] space-y-6">
+        <div className="blog-content text-slate-700 text-base leading-[1.8] space-y-6">
           <style>{`
             .blog-content h2 {
-              color: #ffffff;
+              color: #0f172a;
               font-size: 1.5rem;
               font-weight: 700;
               margin-top: 2.25rem;
@@ -114,7 +114,7 @@ export default async function BlogArticlePage({ params }: Props) {
               line-height: 1.3;
             }
             .blog-content h3 {
-              color: #ffffff;
+              color: #0f172a;
               font-size: 1.25rem;
               font-weight: 600;
               margin-top: 1.75rem;
@@ -135,15 +135,15 @@ export default async function BlogArticlePage({ params }: Props) {
               line-height: 1.8;
             }
             .blog-content strong {
-              color: #ffffff;
+              color: #0f172a;
             }
             .blog-content a {
-              color: #22c55e;
+              color: #2563eb;
               text-decoration: underline;
               transition: color 0.2s;
             }
             .blog-content a:hover {
-              color: #16a34a;
+              color: #1d4ed8;
             }
             .blog-content table {
               width: 100%;
@@ -152,33 +152,33 @@ export default async function BlogArticlePage({ params }: Props) {
               margin-bottom: 1.5rem;
             }
             .blog-content th {
-              background-color: #171717;
-              color: #ffffff;
+              background-color: #f8f9fc;
+              color: #0f172a;
               padding: 0.75rem;
-              border: 1px solid #262626;
+              border: 1px solid #e2e8f0;
               font-weight: 600;
               text-align: left;
             }
             .blog-content td {
               padding: 0.75rem;
-              border: 1px solid #262626;
-              color: #cccccc;
+              border: 1px solid #e2e8f0;
+              color: #334155;
             }
           `}</style>
           <div dangerouslySetInnerHTML={{ __html: article.content }} />
         </div>
 
         {/* CTA Card */}
-        <div className="mt-12 bg-neutral-900 border border-neutral-800 p-8 rounded-2xl text-center space-y-6">
+        <div className="mt-12 bg-white border border-slate-200 p-8 rounded-2xl text-center space-y-6 shadow-sm">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-white">Ready to practice?</h3>
-            <p className="text-neutral-400 text-sm max-w-sm mx-auto">
+            <h3 className="text-xl font-bold text-slate-900">Ready to practice?</h3>
+            <p className="text-slate-500 text-sm max-w-sm mx-auto">
               Start speaking with real people now — free, instant, no signup.
             </p>
           </div>
           <Link
             href="/connect"
-            className="inline-flex h-11 px-8 bg-white hover:bg-neutral-200 text-black font-semibold rounded-lg transition-colors text-sm items-center justify-center"
+            className="inline-flex h-11 px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors text-sm items-center justify-center shadow-md shadow-blue-100 cursor-pointer"
           >
             Start Speaking
           </Link>

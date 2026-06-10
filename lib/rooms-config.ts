@@ -39,9 +39,9 @@ export const ROOM_SCENARIOS: Record<string, string[]> = {
 export const ROOM_SLUGS = Object.keys(ROOM_SCENARIOS);
 
 export const MOCK_ROOMS = [
-  { id: '1', slug: 'daily-life', name: 'Daily Life & Routines', topic: 'Talk about your day, hobbies, food, and simple routines.', level: 'Beginner' as const, max_users: 6, active_count: 2, daily_room_name: 'norinly-daily-life' },
-  { id: '2', slug: 'travel', name: 'Travel Adventures', topic: 'Share travel stories, dream destinations, and local culture.', level: 'Intermediate' as const, max_users: 6, active_count: 3, daily_room_name: 'norinly-travel' },
-  { id: '3', slug: 'debate', name: 'AI & Society Debates', topic: 'Discuss technology, the future, and global issues.', level: 'Advanced' as const, max_users: 6, active_count: 1, daily_room_name: 'norinly-debate' },
+  { id: '1', slug: 'daily-life', name: 'Daily Life & Routines', topic: 'Talk about your day, hobbies, food, and simple routines.', level: 'Beginner' as const, max_users: 6, active_count: 0, daily_room_name: 'norinly-daily-life' },
+  { id: '2', slug: 'travel', name: 'Travel Adventures', topic: 'Share travel stories, dream destinations, and local culture.', level: 'Intermediate' as const, max_users: 6, active_count: 0, daily_room_name: 'norinly-travel' },
+  { id: '3', slug: 'debate', name: 'AI & Society Debates', topic: 'Discuss technology, the future, and global issues.', level: 'Advanced' as const, max_users: 6, active_count: 0, daily_room_name: 'norinly-debate' },
   { id: '4', slug: 'job-interview', name: 'Job Interview Practice', topic: 'Practice interviews, CVs, workplace English, and professional conversations.', level: 'Intermediate' as const, max_users: 6, active_count: 0, daily_room_name: 'norinly-job-interview' },
-  { id: '5', slug: 'free-chat', name: 'Free Chat', topic: 'Talk about anything. No topic, no pressure, just conversation.', level: 'All Levels' as const, max_users: 6, active_count: 4, daily_room_name: 'norinly-free-chat' }
+  { id: '5', slug: 'free-chat', name: 'Free Chat', topic: 'Talk about anything. No topic, no pressure, just conversation.', level: 'All Levels' as const, max_users: 6, active_count: 0, daily_room_name: 'norinly-free-chat' }
 ];

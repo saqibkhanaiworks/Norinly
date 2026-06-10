@@ -37,19 +37,19 @@ const sortedArticles = [...blogArticles].sort((a, b) => {
 
 export default function BlogIndexPage() {
   return (
-    <div className="flex-1 bg-gradient-to-b from-[#0a0a0a] to-neutral-950 py-16 px-4 sm:px-6">
+    <div className="flex-1 bg-[#f8f9fc] py-16 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Back Link */}
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
 
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl flex items-center gap-3">
-            <BookOpen className="w-8 h-8 text-blue-400" /> Language Learning Resources
+          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl flex items-center gap-3">
+            <BookOpen className="w-8 h-8 text-blue-600" /> Language Learning Resources
           </h1>
-          <p className="text-neutral-400 text-lg">
+          <p className="text-slate-600 text-lg">
             Practical advice, learning guides, and insights to help you master spoken English.
           </p>
         </div>
@@ -59,11 +59,11 @@ export default function BlogIndexPage() {
           {sortedArticles.map((post) => (
             <div
               key={post.slug}
-              className="flex flex-col justify-between bg-neutral-900 border border-neutral-800 hover:border-neutral-700 p-6 rounded-2xl transition-all duration-200 group"
+              className="flex flex-col justify-between bg-white border border-slate-200 hover:border-slate-350 hover:border-slate-300 p-6 rounded-2xl transition-all duration-200 group shadow-sm"
             >
               <div className="space-y-4">
                 {/* Meta info */}
-                <div className="flex items-center gap-4 text-xs text-neutral-500 font-medium">
+                <div className="flex items-center gap-4 text-xs text-slate-400 font-medium">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {post.date}
@@ -75,19 +75,19 @@ export default function BlogIndexPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
                     {post.title}
                   </h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed line-clamp-4">
+                  <p className="text-slate-500 text-sm leading-relaxed line-clamp-4">
                     {post.description}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-neutral-850">
+              <div className="mt-6 pt-4 border-t border-slate-100">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-sm font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-1.5 group/link"
+                  className="text-sm font-semibold text-blue-600 hover:text-blue-755 hover:text-blue-700 transition-colors inline-flex items-center gap-1.5 group/link"
                 >
                   Read Article
                   <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />

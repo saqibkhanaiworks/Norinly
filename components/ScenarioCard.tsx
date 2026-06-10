@@ -40,16 +40,16 @@ export default function ScenarioCard({ prompts }: ScenarioCardProps) {
   if (!currentPrompt) return null;
 
   return (
-    <div className="bg-neutral-900/40 border border-neutral-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 backdrop-blur-sm">
+    <div className="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
       <div className="flex gap-4">
-        <div className="flex items-center justify-center p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl shrink-0 mt-0.5">
-          <Lightbulb className="w-5 h-5 text-blue-400" />
+        <div className="flex items-center justify-center p-3 bg-blue-50 border border-blue-100 rounded-xl shrink-0 mt-0.5">
+          <Lightbulb className="w-5 h-5 text-blue-600" />
         </div>
         <div className="space-y-1">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
             Conversation starter
           </span>
-          <p className="text-white text-base leading-relaxed font-medium">
+          <p className="text-slate-800 text-base leading-relaxed font-medium">
             "{currentPrompt}"
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function ScenarioCard({ prompts }: ScenarioCardProps) {
       <button
         onClick={selectRandomPrompt}
         disabled={isRotating}
-        className="w-full md:w-auto px-4 py-2.5 bg-neutral-850 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 hover:border-neutral-700 font-medium rounded-xl flex items-center justify-center gap-2 transition-all duration-200 text-sm active:scale-95 shrink-0"
+        className="w-full md:w-auto px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 font-medium rounded-xl flex items-center justify-center gap-2 transition-all duration-200 text-sm active:scale-95 shrink-0 cursor-pointer shadow-sm"
       >
         <RefreshCw className={`w-4 h-4 ${isRotating ? 'animate-spin' : ''}`} />
         New Prompt

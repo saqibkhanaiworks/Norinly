@@ -55,18 +55,18 @@ export default function LiveCounter() {
   const finalCount = count || 0;
 
   return (
-    <div className="flex items-center gap-2 bg-neutral-900/40 border border-neutral-800/80 px-4 py-1.5 rounded-full text-xs sm:text-sm text-neutral-300 font-medium backdrop-blur-md">
+    <div className="flex items-center gap-2 bg-indigo-50/70 border border-indigo-100/80 px-4 py-1.5 rounded-full text-xs sm:text-sm text-indigo-800 font-semibold shadow-sm select-none">
       <span className="relative flex h-2 w-2" role="img" aria-label="Live status indicator">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
       </span>
       {finalCount > 0 ? (
         <span>
-          <strong className="text-white font-semibold">{finalCount}</strong>{' '}
-          {finalCount === 1 ? 'person' : 'people'} practicing right now
+          <strong className="text-indigo-950 font-black">{finalCount}</strong>{' '}
+          {finalCount === 1 ? 'learner' : 'learners'} speaking right now
         </span>
       ) : (
-        <span>Be the first to join today</span>
+        <span>✨ Fluent English begins with one conversation. Take the first step today!</span>
       )}
     </div>
   );

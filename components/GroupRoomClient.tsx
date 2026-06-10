@@ -245,13 +245,13 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
   const prompts = ROOM_SCENARIOS[room.slug] || [];
 
   return (
-    <div className="flex-1 flex flex-col justify-center bg-gradient-to-b from-[#0a0a0a] to-neutral-950 py-10 px-4 sm:px-6 relative">
+    <div className="flex-1 flex flex-col justify-center bg-[#f8f9fc] py-10 px-4 sm:px-6 relative">
       {/* Return home link (only when not connected) */}
       {step !== 'connected' && (
         <div className="absolute top-6 left-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
@@ -268,13 +268,13 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
 
         {step === 'connecting' && (
           <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-6 text-center animate-fade-in">
-            <div className="relative flex items-center justify-center w-20 h-20 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <Mic className="w-8 h-8 text-blue-500 animate-pulse" />
+            <div className="relative flex items-center justify-center w-20 h-20 bg-blue-55 bg-blue-50 border border-blue-100 rounded-full">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+              <Mic className="w-8 h-8 text-blue-600 animate-pulse" />
             </div>
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-white">Connecting Room...</h2>
-              <p className="text-neutral-400 text-sm">Joining {room.name}</p>
+              <h2 className="text-xl font-bold text-slate-900">Connecting Room...</h2>
+              <p className="text-slate-500 text-sm">Joining {room.name}</p>
             </div>
           </div>
         )}
@@ -282,17 +282,17 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
         {step === 'connected' && (
           <div className="space-y-8 animate-fade-in">
             {/* Header metadata */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-neutral-900 border border-neutral-800 p-6 rounded-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
               <div className="space-y-1">
                 <div className="flex items-center gap-2.5">
-                  <h1 className="text-xl font-extrabold text-white">{room.name}</h1>
-                  <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">
+                  <h1 className="text-xl font-extrabold text-slate-900">{room.name}</h1>
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 rounded-full">
                     {room.level}
                   </span>
                 </div>
-                <p className="text-neutral-400 text-sm">{room.topic}</p>
+                <p className="text-slate-500 text-sm">{room.topic}</p>
                 {liveActiveCount < (room.max_users || 6) && (
-                  <div className="text-[12px] text-[#888888] italic pt-1.5">
+                  <div className="text-[12px] text-slate-400 italic pt-1.5">
                     {(() => {
                       const count = liveActiveCount;
                       const max = room.max_users || 6;
@@ -308,13 +308,13 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1.5 text-xs text-neutral-400 bg-neutral-950/45 px-3 py-1.5 border border-neutral-800 rounded-full">
-                  <Users className="w-4 h-4 text-blue-400" />
-                  <span className="text-white font-semibold">{liveActiveCount}</span> / {room.max_users} online
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 bg-slate-50 px-3 py-1.5 border border-slate-200 rounded-full">
+                  <Users className="w-4 h-4 text-blue-600" />
+                  <span className="text-slate-800 font-semibold">{liveActiveCount}</span> / {room.max_users} online
                 </div>
                 <button
                   onClick={() => setShowReport(true)}
-                  className="flex items-center justify-center w-9 h-9 bg-neutral-950/45 border border-neutral-800 rounded-xl text-neutral-500 hover:text-blue-400 hover:border-blue-500/20 transition-all duration-200"
+                  className="flex items-center justify-center w-9 h-9 bg-slate-50 border border-slate-200 rounded-xl text-slate-400 hover:text-blue-605 hover:text-blue-600 hover:border-blue-200 transition-all duration-200 cursor-pointer"
                   title="Report Room"
                 >
                   <Flag className="w-4 h-4" />
@@ -323,7 +323,7 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
             </div>
 
             {error && (
-              <div className="p-4 bg-blue-950/20 border border-blue-900/40 text-blue-400 text-sm rounded-xl flex items-center gap-3">
+              <div className="p-4 bg-red-50 border border-red-105 border-red-100 text-red-600 text-sm rounded-xl flex items-center gap-3">
                 <ShieldAlert className="w-5 h-5 shrink-0" />
                 {error}
               </div>
@@ -333,14 +333,14 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
             <ScenarioCard prompts={prompts} />
 
             {/* Audio Voice Control Panel */}
-            <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-6">
+            <div className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-6 shadow-sm">
               <div className="relative flex items-center justify-center w-28 h-28">
                 {!isMuted && (
                   <>
-                    <div className={`absolute inset-0 rounded-full bg-blue-500/5 border border-blue-500/10 transition-all duration-300 ${
+                    <div className={`absolute inset-0 rounded-full bg-blue-600/5 border border-blue-600/10 transition-all duration-300 ${
                       localIsSpeaking ? 'animate-ping scale-110 opacity-70' : 'animate-pulse scale-100 opacity-30'
                     }`} />
-                    <div className={`absolute inset-3 rounded-full bg-blue-500/5 border border-blue-500/10 transition-all duration-500 ${
+                    <div className={`absolute inset-3 rounded-full bg-blue-600/5 border border-blue-600/10 transition-all duration-500 ${
                       localIsSpeaking ? 'scale-105 opacity-80' : 'scale-100 opacity-40'
                     }`} />
                   </>
@@ -348,12 +348,12 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
 
                 <button
                   onClick={toggleMute}
-                  className={`relative flex items-center justify-center w-20 h-20 rounded-full border transition-all duration-300 ${
+                  className={`relative flex items-center justify-center w-20 h-20 rounded-full border transition-all duration-300 cursor-pointer ${
                     isMuted
-                      ? 'bg-blue-950/40 border-blue-900/40 text-blue-400 hover:bg-blue-950/70'
+                      ? 'bg-red-50 border-red-200 text-red-600 hover:bg-red-100 shadow-sm shadow-red-50'
                       : localIsSpeaking
-                      ? 'bg-blue-600 border-blue-400 text-white shadow-lg shadow-blue-500/20'
-                      : 'bg-neutral-950 border-neutral-800 text-white hover:border-neutral-700'
+                      ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-100'
+                      : 'bg-slate-50 border-slate-200 text-slate-750 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                   }`}
                 >
                   {isMuted ? <MicOff className="w-8 h-8" /> : <Mic className="w-8 h-8" />}
@@ -361,16 +361,16 @@ export default function GroupRoomClient({ room }: GroupRoomClientProps) {
               </div>
 
               <div className="text-center h-4">
-                <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
+                <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
                   {isMuted ? 'Muted' : localIsSpeaking ? 'You are speaking' : 'Listening...'}
                 </span>
               </div>
 
               <button
                 onClick={handleLeave}
-                className="w-full sm:w-auto h-12 px-8 bg-neutral-950 border border-neutral-800 hover:border-blue-900/50 hover:text-blue-400 text-neutral-300 font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 text-sm"
+                className="w-full sm:w-auto h-12 px-8 bg-white border border-slate-200 hover:border-red-200 hover:text-red-600 text-slate-600 font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 text-sm cursor-pointer shadow-sm group"
               >
-                <PhoneOff className="w-4 h-4" />
+                <PhoneOff className="w-4 h-4 text-slate-400 group-hover:text-red-500" />
                 Leave Room
               </button>
             </div>
