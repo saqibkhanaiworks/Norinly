@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 interface UserState {
   anonId: string;
+  nickname?: string;
   streak: number;
   lastVisitDate: string;
   quizCompleted: boolean;
@@ -14,6 +15,7 @@ interface UserState {
   quizScoreHistory: { date: string; score: number }[];
   wordViewed: boolean;
   lastWordViewDate: string;
+  voiceXP?: number;
 }
 
 interface QuizQuestion {
@@ -396,6 +398,7 @@ function saveUserState(state: UserState) {
 function loadUserState(): UserState {
   const defaultState: UserState = {
     anonId: generateAnonId(),
+    nickname: 'Anonymous Learner',
     streak: 0,
     lastVisitDate: getTodayKey(),
     quizCompleted: false,
@@ -539,6 +542,22 @@ export default function LearnPage() {
   const [state, setState] = useState<UserState | null>(null);
   const [mounted, setMounted] = useState(false);
 
+  // Nickname edit state
+  const [isEditingNickname, setIsEditingNickname] = useState(false);
+  const [nicknameInput, setNicknameInput] = useState('');
+
+  const handleStartEdit = () => {
+    setNicknameInput(state?.nickname || 'Anonymous Learner');
+    setIsEditingNickname(true);
+  };
+
+  const handleSaveNickname = () => {
+    if (nicknameInput.trim()) {
+      updateState({ nickname: nicknameInput.trim() });
+      setIsEditingNickname(false);
+    }
+  };
+
   // Tabs state
   const [activeTab, setActiveTab] = useState<'learn' | 'review' | 'stats' | 'profile'>('learn');
 
@@ -610,8 +629,11 @@ export default function LearnPage() {
       if (rawSessions) {
         const sessions = JSON.parse(rawSessions);
         const today = getTodayKey();
-        const todaySessions = sessions.filter((s: any) => s.created_at && s.created_at.startsWith(today));
-        const totalSec = todaySessions.reduce((acc: number, s: any) => acc + (s.duration || 0), 0);
+        const todaySessions = sessions.filter((s: any) => {
+          const dateStr = s.date || s.created_at;
+          return dateStr && dateStr.startsWith(today);
+        });
+        const totalSec = todaySessions.reduce((acc: number, s: any) => acc + (s.durationSeconds || s.duration || 0), 0);
         setFocusMinutes(Math.ceil(totalSec / 60));
       }
     } catch (e) {
@@ -718,7 +740,7 @@ export default function LearnPage() {
   // Compute a virtual XP system based on streak and quiz history score
   const totalQuizPoints = state.quizScoreHistory.reduce((acc, h) => acc + h.score, 0) * 10;
   const streakPoints = state.streak * 100;
-  const virtualXP = streakPoints + totalQuizPoints;
+  const virtualXP = streakPoints + totalQuizPoints + (state.voiceXP || 0);
 
   // Anonymous avatar emoji selector based on ID length/character
   const avatars = ['😎', '🤓', '🤠', '🦊', '🐻', '🎓', '🎨', '🚀', '🌟', '🦄'];
@@ -1434,16 +1456,53 @@ export default function LearnPage() {
 
             {/* Profile Detail Card */}
             <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-purple-100 border border-purple-200 flex items-center justify-center text-4xl shadow-sm">
-                  {userAvatar}
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-xl font-bold text-slate-900">Anonymous English Learner</h3>
-                  <div className="flex items-center gap-1 text-xs text-slate-400 font-semibold">
-                    <span>Silent Local Account</span>
-                    <span>·</span>
-                    <span className="text-purple-600">Active</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-2xl bg-purple-100 border border-purple-200 flex items-center justify-center text-4xl shadow-sm">
+                    {userAvatar}
+                  </div>
+                  <div className="space-y-1">
+                    {isEditingNickname ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={nicknameInput}
+                          onChange={(e) => setNicknameInput(e.target.value)}
+                          placeholder="Enter nickname..."
+                          className="h-9 px-3 border border-slate-200 rounded-lg text-sm font-semibold focus:outline-none focus:border-purple-650 bg-white"
+                          maxLength={15}
+                        />
+                        <button
+                          onClick={handleSaveNickname}
+                          className="h-9 px-3.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={() => setIsEditingNickname(false)}
+                          className="h-9 px-3 border border-slate-200 hover:bg-slate-50 text-slate-650 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          {state.nickname || 'Anonymous Learner'}
+                        </h3>
+                        <button
+                          onClick={handleStartEdit}
+                          className="text-xs text-purple-600 hover:underline font-bold cursor-pointer"
+                        >
+                          (Edit Name)
+                        </button>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-1 text-xs text-slate-400 font-semibold">
+                      <span>Silent Local Account</span>
+                      <span>·</span>
+                      <span className="text-purple-600">Active</span>
+                    </div>
                   </div>
                 </div>
               </div>

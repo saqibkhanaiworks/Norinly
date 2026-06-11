@@ -85,6 +85,12 @@ export default function RoomCard({ room }: RoomCardProps) {
               </div>
             )}
             <div className="flex items-center gap-1.5">
+              {room.active_count > 0 && (
+                <span className="relative flex h-2 w-2 mr-0.5" role="presentation">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+              )}
               <Users className="w-3.5 h-3.5" role="img" aria-label="Users icon" />
               <span className={room.active_count > 0 ? `${styles.text} font-bold` : ''}>
                 {room.active_count || 0} / {room.max_users || 6} talking

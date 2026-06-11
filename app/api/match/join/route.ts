@@ -3,8 +3,35 @@ import { generateLiveKitToken } from '@/lib/livekit';
 import { NextResponse } from 'next/server';
 import webpush from 'web-push';
 
+const rateLimitMap = new Map<string, number[]>();
+
+function isRateLimited(ip: string, limit = 5, windowMs = 60 * 1000): boolean {
+  const now = Date.now();
+  const timestamps = rateLimitMap.get(ip) || [];
+  
+  // Filter out timestamps older than the window
+  const activeTimestamps = timestamps.filter(t => now - t < windowMs);
+  
+  if (activeTimestamps.length >= limit) {
+    return true;
+  }
+  
+  activeTimestamps.push(now);
+  rateLimitMap.set(ip, activeTimestamps);
+  return false;
+}
+
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+    
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many matchmaking attempts. Please wait 1 minute before trying again.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json().catch(() => ({}));
     const { country, level } = body;
     const sessionToken = crypto.randomUUID();

@@ -350,6 +350,22 @@ export default async function HomePage() {
             <Link href="/compare/italki-alternative" className="hover:text-blue-600 transition-colors hover:underline">
               Free italki speaking alternative
             </Link>
+            <span className="text-slate-350">|</span>
+            <Link href="/compare/tandem-alternative" className="hover:text-blue-600 transition-colors hover:underline">
+              Free Tandem alternative
+            </Link>
+            <span className="text-slate-350">|</span>
+            <Link href="/compare/speaky-alternative" className="hover:text-blue-600 transition-colors hover:underline">
+              Speaky alternative
+            </Link>
+            <span className="text-slate-350">|</span>
+            <Link href="/compare/preply-alternative" className="hover:text-blue-600 transition-colors hover:underline">
+              Free Preply alternative
+            </Link>
+            <span className="text-slate-350">|</span>
+            <Link href="/compare/busuu-alternative" className="hover:text-blue-600 transition-colors hover:underline">
+              Busuu alternative
+            </Link>
           </div>
         </div>
       </section>

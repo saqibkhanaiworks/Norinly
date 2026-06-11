@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Shield, EyeOff, Trash2, Mail } from 'lucide-react';
+import ObfuscatedEmail from '@/components/ObfuscatedEmail';
 
 export const metadata = {
   title: 'Privacy Policy | Norinly',
@@ -48,6 +49,7 @@ export default function PrivacyPage() {
               <li>Matchmaking statuses (e.g. joined queue timestamp).</li>
               <li>Country indicator derived from browser timezone settings (to improve regional matching).</li>
               <li>Call durations and logs for traffic analytics.</li>
+              <li>Hashed connection metadata and device signatures (used strictly for abuse control and enforcing bans).</li>
             </ul>
           </section>
 
@@ -67,6 +69,15 @@ export default function PrivacyPage() {
 
           <section className="space-y-3">
             <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <Shield className="w-5 h-5 text-blue-600" /> Security & Abuse Control
+            </h3>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              To ensure a safe environment, we enforce a zero-tolerance policy against harassment. We compile cryptographic, one-way hashes of connection attributes and browser properties. These hashes are completely anonymous and cannot be reversed to reveal your real IP address or identify you personally. They are processed and stored solely to enforce permanent bans on bad actors.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
               <Trash2 className="w-5 h-5 text-slate-500" /> Data Retention & Deletion
             </h3>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -80,9 +91,7 @@ export default function PrivacyPage() {
             </h3>
             <p className="text-sm text-slate-500 leading-relaxed">
               For any privacy inquiries or to request immediate metadata logs deletion, please contact us via email at{' '}
-              <a href="mailto:privacy@norinly.live" className="text-blue-600 hover:underline">
-                privacy@norinly.live
-              </a>.
+              <ObfuscatedEmail />.
             </p>
           </section>
         </div>

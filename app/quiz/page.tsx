@@ -14,6 +14,7 @@ interface UserState {
   quizScoreHistory: { date: string; score: number }[];
   wordViewed: boolean;
   lastWordViewDate: string;
+  voiceXP?: number;
 }
 
 const DEFAULT_STATE = (anonId: string): UserState => ({

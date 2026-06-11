@@ -13,7 +13,7 @@ interface VoiceRoomProps {
   sessionToken: string;
   userName: string;
   onSkip: () => void;
-  onEnd: () => void;
+  onEnd: (durationSeconds: number) => void;
   partnerCountry?: string | null;
 }
 
@@ -324,7 +324,7 @@ export default function VoiceRoom({ roomUrl, meetingToken, sessionToken, userNam
       }
     }
 
-    setPendingAction(() => onEnd);
+    setPendingAction(() => () => onEnd(duration));
     setShowFeedback(true);
   };
 
