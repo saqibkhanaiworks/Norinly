@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const CHALLENGES = [
   "Use 3 different past tense sentences in your next call.",
@@ -37,8 +37,12 @@ const CHALLENGES = [
 
 export default function DailyChallenge() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const challengeIndex = new Date().getDate() % 30;
-  const challenge = CHALLENGES[challengeIndex];
+  const [challenge, setChallenge] = useState<string>('');
+
+  useEffect(() => {
+    const challengeIndex = new Date().getDate() % 30;
+    setChallenge(CHALLENGES[challengeIndex]);
+  }, []);
 
   return (
     <div className="w-full bg-white border border-slate-250/60 border-l-4 border-l-[#3b82f6] rounded-r-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 transition-all duration-200 shadow-sm">
@@ -46,19 +50,25 @@ export default function DailyChallenge() {
         <span className="text-lg shrink-0" role="img" aria-label="lightbulb">💡</span>
         <div className="text-sm text-slate-800 font-medium leading-relaxed">
           <span className="text-slate-500 font-semibold mr-1">Today's challenge:</span>
-          <span className={isExpanded ? '' : 'line-clamp-1 md:line-clamp-none'}>
-            {challenge}
-          </span>
+          {challenge ? (
+            <span className={isExpanded ? '' : 'line-clamp-1 md:line-clamp-none'}>
+              {challenge}
+            </span>
+          ) : (
+            <span className="inline-block h-4 w-48 bg-slate-100 animate-pulse rounded align-middle" />
+          )}
         </div>
       </div>
       
-      <button
-        type="button"
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="md:hidden text-xs text-[#3b82f6] hover:text-[#2563eb] font-bold self-end md:self-auto transition-colors cursor-pointer shrink-0"
-      >
-        {isExpanded ? 'Show less' : 'Show more'}
-      </button>
+      {challenge && (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="md:hidden text-xs text-[#3b82f6] hover:text-[#2563eb] font-bold self-end md:self-auto transition-colors cursor-pointer shrink-0"
+        >
+          {isExpanded ? 'Show less' : 'Show more'}
+        </button>
+      )}
     </div>
   );
 }
